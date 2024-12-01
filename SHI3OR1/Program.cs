@@ -2,16 +2,18 @@
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        Car c0 = new Car("11-111-11");
+        c0.IsCarAvail();
+        
     }
 }
 
 
 
 
-class car
+class Car
 {
-    private string licensePlate;
+    private string licenseNum;
     private string model;
     private int seat_num;
     private int km;
@@ -19,9 +21,36 @@ class car
     private bool isAvail;
     private double dailyPrice;
 
-    void SetTaken()
+
+
+    
+    public Car(string licenseNum)
+    {
+        SetPlate(licenseNum);
+    }
+
+    public void IsCarAvail()
+    {
+        string s = $"car{this.licenseNum} is";
+        if (!this.isAvail)
+        {
+            s+="NOT AVAILABLE";
+        }
+
+        
+        s+= "Available";
+            Console.WriteLine(s);
+    }
+    
+    public void SetTaken()
     {
         this.isAvail = false;
     }
+
+    public void SetPlate(string licenseNum)
+    {
+        this.licenseNum = licenseNum;
+    }
+
 }
 
